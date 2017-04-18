@@ -6,12 +6,11 @@ version: '3'
 services:
 
   diaspora:
-    image: diaspora.inethi.net
-    volumes:
-      - /mnt/data/diaspora/nginx:/etc/nginx
-      - /mnt/data/diaspora/diaspora:/home/diaspora/diaspora
+    image: diaspora.inethi.net:1.0
+    volume:
+      - /mnt/data/diaspora/uploads:/home/diaspora/diaspora/public/uploads
     ports:
-      - 443:443
+      - 8083:443
     restart: on-failure
     network_mode: "bridge"
     container_name: diaspora.inethi.net
